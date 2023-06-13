@@ -18,7 +18,8 @@ Route::get('/', function () {
 });
 
 Auth::routes();
-
+Route::resource('clientes',App\Http\Controllers\ClienteController::class);
+Route::resource('generos',App\Http\Controllers\GeneroController::class);
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 //Route Hooks - Do not delete//

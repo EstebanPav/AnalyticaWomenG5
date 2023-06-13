@@ -36,6 +36,12 @@
 					@auth()
                     <ul class="navbar-nav mr-auto">
 						<!--Nav Bar Hooks - Do not delete!!-->
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('clientes.index') }}">{{ __('clientes') }}</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('generos.index') }}">{{ __('generos') }}</a>
+                        </li>
                     </ul>
 					@endauth()
 					
