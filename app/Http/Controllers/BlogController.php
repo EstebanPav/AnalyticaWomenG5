@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Blog;
+use App\Models\Comentario;
 use Illuminate\Http\Request;
 
 /**
@@ -32,7 +33,8 @@ class BlogController extends Controller
     public function create()
     {
         $blog = new Blog();
-        return view('blog.create', compact('blog'));
+        $comentarios= Comentario::pluck('contenido_com','id');
+        return view('blog.create', compact('blog','comentarios'));
     }
 
     /**
@@ -73,8 +75,8 @@ class BlogController extends Controller
     public function edit($id)
     {
         $blog = Blog::find($id);
-
-        return view('blog.edit', compact('blog'));
+        $comentarios= Comentario::pluck('contenido_com','id');
+        return view('blog.edit', compact('blog','comentarios'));
     }
 
     /**

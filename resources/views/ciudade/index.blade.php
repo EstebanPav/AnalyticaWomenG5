@@ -47,7 +47,9 @@
                                         <tr>
                                             <td>{{ ++$i }}</td>
                                             
-											<td>{{ $ciudade->provincia_id }}</td>
+											<td>
+                                                {{ $ciudade->provincia->nombre_prov}}
+                                            </td>
 											<td>{{ $ciudade->nombre_ciu }}</td>
 
                                             <td>

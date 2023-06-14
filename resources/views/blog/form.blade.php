@@ -7,6 +7,11 @@
             {!! $errors->first('comentario_id', '<div class="invalid-feedback">:message</div>') !!}
         </div>
         <div class="form-group">
+            {{ Form::label('comentario_id') }}
+            {{ Form::select('comentario_id',$comentarios, $blog->comentario_id, ['class' => 'form-control' . ($errors->has('comentario_id') ? ' is-invalid' : ''), 'placeholder' => 'Comentario Id']) }}
+            {!! $errors->first('comentario_id', '<div class="invalid-feedback">:message</div>') !!}
+        </div>
+        <div class="form-group">
             {{ Form::label('titulo_blog') }}
             {{ Form::text('titulo_blog', $blog->titulo_blog, ['class' => 'form-control' . ($errors->has('titulo_blog') ? ' is-invalid' : ''), 'placeholder' => 'Titulo Blog']) }}
             {!! $errors->first('titulo_blog', '<div class="invalid-feedback">:message</div>') !!}

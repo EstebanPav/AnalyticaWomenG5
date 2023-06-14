@@ -47,7 +47,9 @@
                                         <tr>
                                             <td>{{ ++$i }}</td>
                                             
-											<td>{{ $provincia->cliente_id }}</td>
+											<td>
+                                                {{ $provincia->cliente->nombre_cli}}
+                                            </td>
 											<td>{{ $provincia->nombre_prov }}</td>
 
                                             <td>

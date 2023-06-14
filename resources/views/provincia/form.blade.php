@@ -7,6 +7,11 @@
             {!! $errors->first('cliente_id', '<div class="invalid-feedback">:message</div>') !!}
         </div>
         <div class="form-group">
+            {{ Form::label('cliente_id') }}
+            {{ Form::select('cliente_id',$clientes, $provincia->cliente_id, ['class' => 'form-control' . ($errors->has('cliente_id') ? ' is-invalid' : ''), 'placeholder' => 'Cliente Id']) }}
+            {!! $errors->first('cliente_id', '<div class="invalid-feedback">:message</div>') !!}
+        </div>
+        <div class="form-group">
             {{ Form::label('nombre_prov') }}
             {{ Form::text('nombre_prov', $provincia->nombre_prov, ['class' => 'form-control' . ($errors->has('nombre_prov') ? ' is-invalid' : ''), 'placeholder' => 'Nombre Prov']) }}
             {!! $errors->first('nombre_prov', '<div class="invalid-feedback">:message</div>') !!}

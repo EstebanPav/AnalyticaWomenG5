@@ -48,7 +48,9 @@
                                         <tr>
                                             <td>{{ ++$i }}</td>
                                             
-											<td>{{ $blog->comentario_id }}</td>
+											<td>
+                                                {{ $blog->comentario->contenido_com}}
+                                            </td>
 											<td>{{ $blog->titulo_blog }}</td>
 											<td>{{ $blog->valoracion_blog }}</td>
 

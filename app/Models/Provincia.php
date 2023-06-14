@@ -13,6 +13,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property $created_at
  * @property $updated_at
  *
+ * @property Ciudade[] $ciudades
  * @property Cliente $cliente
  * @package App
  * @mixin \Illuminate\Database\Eloquent\Builder
@@ -36,11 +37,19 @@ class Provincia extends Model
 
 
     /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function ciudades()
+    {
+        return $this->hasMany('App\Models\Ciudade', 'provincia_id', 'id');
+    }
+    
+    /**
      * @return \Illuminate\Database\Eloquent\Relations\HasOne
      */
     public function cliente()
     {
-        return $this->hasOne('App\Models\Cliente', 'id_cli', 'cliente_id');
+        return $this->hasOne('App\Models\Cliente', 'id', 'cliente_id');
     }
     
 

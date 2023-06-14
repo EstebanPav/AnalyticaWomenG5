@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Ciudade;
+use App\Models\Provincia;
 use Illuminate\Http\Request;
 
 /**
@@ -32,7 +33,8 @@ class CiudadeController extends Controller
     public function create()
     {
         $ciudade = new Ciudade();
-        return view('ciudade.create', compact('ciudade'));
+        $provincias= Provincia::pluck('nombre_prov','id');
+        return view('ciudade.create', compact('ciudade'.'provincias'));
     }
 
     /**
@@ -73,8 +75,8 @@ class CiudadeController extends Controller
     public function edit($id)
     {
         $ciudade = Ciudade::find($id);
-
-        return view('ciudade.edit', compact('ciudade'));
+        $provincias= Provincia::pluck('nombre_prov','id');
+        return view('ciudade.edit', compact('ciudade','provincias'));
     }
 
     /**

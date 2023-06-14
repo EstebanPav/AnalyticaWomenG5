@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Provincia;
+use App\Models\Cliente;
 use Illuminate\Http\Request;
 
 /**
@@ -32,7 +33,8 @@ class ProvinciaController extends Controller
     public function create()
     {
         $provincia = new Provincia();
-        return view('provincia.create', compact('provincia'));
+        $clientes= Cliente::pluck('nombre_cli','id');
+        return view('provincia.create', compact('provincia','clientes'));
     }
 
     /**
@@ -73,8 +75,8 @@ class ProvinciaController extends Controller
     public function edit($id)
     {
         $provincia = Provincia::find($id);
-
-        return view('provincia.edit', compact('provincia'));
+        $clientes= Cliente::pluck('nombre_cli','id');
+        return view('provincia.edit', compact('provincia','clientes'));
     }
 
     /**

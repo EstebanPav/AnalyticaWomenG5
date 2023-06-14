@@ -7,6 +7,11 @@
             {!! $errors->first('provincia_id', '<div class="invalid-feedback">:message</div>') !!}
         </div>
         <div class="form-group">
+            {{ Form::label('provincia_id') }}
+            {{ Form::select('provincia_id',$provincias, $ciudade->provincia_id, ['class' => 'form-control' . ($errors->has('provincia_id') ? ' is-invalid' : ''), 'placeholder' => 'Provincia Id']) }}
+            {!! $errors->first('provincia_id', '<div class="invalid-feedback">:message</div>') !!}
+        </div>
+        <div class="form-group">
             {{ Form::label('nombre_ciu') }}
             {{ Form::text('nombre_ciu', $ciudade->nombre_ciu, ['class' => 'form-control' . ($errors->has('nombre_ciu') ? ' is-invalid' : ''), 'placeholder' => 'Nombre Ciu']) }}
             {!! $errors->first('nombre_ciu', '<div class="invalid-feedback">:message</div>') !!}
