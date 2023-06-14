@@ -49,7 +49,9 @@
                                         <tr>
                                             <td>{{ ++$i }}</td>
                                             
-											<td>{{ $servicio->cliente_id }}</td>
+											<td>
+                                                {{ $servicio->cliente->nombre_cli}}
+                                            </td>
 											<td>{{ $servicio->nombre_serv }}</td>
 											<td>{{ $servicio->descripcion_serv }}</td>
 											<td>{{ $servicio->precio_serv }}</td>

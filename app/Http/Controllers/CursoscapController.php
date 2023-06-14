@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Cursoscap;
+use App\Models\Cliente;
 use Illuminate\Http\Request;
 
 /**
@@ -32,7 +33,8 @@ class CursoscapController extends Controller
     public function create()
     {
         $cursoscap = new Cursoscap();
-        return view('cursoscap.create', compact('cursoscap'));
+        $clientes= Cliente::pluck('nombre_cli','id');
+        return view('cursoscap.create', compact('cursoscap','clientes'));
     }
 
     /**
@@ -73,8 +75,8 @@ class CursoscapController extends Controller
     public function edit($id)
     {
         $cursoscap = Cursoscap::find($id);
-
-        return view('cursoscap.edit', compact('cursoscap'));
+        $clientes= Cliente::pluck('nombre_cli','id');
+        return view('cursoscap.edit', compact('cursoscap','clientes'));
     }
 
     /**

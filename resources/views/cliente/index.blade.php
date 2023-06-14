@@ -55,7 +55,6 @@
                                             <td>{{ ++$i }}</td>
 
 											<td>
-
                                                 {{ $cliente->genero->Nombre_gen}}
                                             </td>
 											<td>{{ $cliente->nombre_cli }}</td>

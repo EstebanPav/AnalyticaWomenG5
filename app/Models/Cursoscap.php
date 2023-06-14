@@ -54,7 +54,7 @@ class Cursoscap extends Model
      */
     public function cliente()
     {
-        return $this->hasOne('App\Models\Cliente', 'id_cli', 'cliente_id');
+        return $this->hasOne('App\Models\Cliente', 'id', 'cliente_id');
     }
     
 

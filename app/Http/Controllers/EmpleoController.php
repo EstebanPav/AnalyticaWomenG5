@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Empleo;
+use App\Models\Cliente;
 use Illuminate\Http\Request;
 
 /**
@@ -32,7 +33,8 @@ class EmpleoController extends Controller
     public function create()
     {
         $empleo = new Empleo();
-        return view('empleo.create', compact('empleo'));
+        $clientes= Cliente::pluck('nombre_cli','id');
+        return view('empleo.create', compact('empleo','clientes'));
     }
 
     /**
@@ -73,8 +75,8 @@ class EmpleoController extends Controller
     public function edit($id)
     {
         $empleo = Empleo::find($id);
-
-        return view('empleo.edit', compact('empleo'));
+        $clientes= Cliente::pluck('nombre_cli','id');
+        return view('empleo.edit', compact('empleo','clientes'));
     }
 
     /**

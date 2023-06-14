@@ -54,7 +54,9 @@
                                         <tr>
                                             <td>{{ ++$i }}</td>
                                             
-											<td>{{ $cursoscap->cliente_id }}</td>
+											<td>
+                                                {{ $cursoscap->cliente->nombre_cli}}
+                                            </td>
 											<td>{{ $cursoscap->nombre_cursoscaps }}</td>
 											<td>{{ $cursoscap->descipcion_cursoscaps }}</td>
 											<td>{{ $cursoscap->publicacion_cursoscaps }}</td>

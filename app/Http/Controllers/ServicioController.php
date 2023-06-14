@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Servicio;
+use App\Models\Cliente;
 use Illuminate\Http\Request;
 
 /**
@@ -32,7 +33,8 @@ class ServicioController extends Controller
     public function create()
     {
         $servicio = new Servicio();
-        return view('servicio.create', compact('servicio'));
+        $clientes= Cliente::pluck('nombre_cli','id');
+        return view('servicio.create', compact('servicio','clientes'));
     }
 
     /**
@@ -73,8 +75,8 @@ class ServicioController extends Controller
     public function edit($id)
     {
         $servicio = Servicio::find($id);
-
-        return view('servicio.edit', compact('servicio'));
+        $clientes= Cliente::pluck('nombre_cli','id');
+        return view('servicio.edit', compact('servicio','clientes'));
     }
 
     /**

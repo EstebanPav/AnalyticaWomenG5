@@ -52,7 +52,9 @@
                                         <tr>
                                             <td>{{ ++$i }}</td>
                                             
-											<td>{{ $empleo->cliente_id }}</td>
+											<td>
+                                                {{ $empleo->cliente->nombre_cli }}
+                                            </td>
 											<td>{{ $empleo->nombre_emp }}</td>
 											<td>{{ $empleo->descripcion_emp }}</td>
 											<td>{{ $empleo->modalidad_emp }}</td>

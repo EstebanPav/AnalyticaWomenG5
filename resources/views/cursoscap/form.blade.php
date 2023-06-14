@@ -7,6 +7,11 @@
             {!! $errors->first('cliente_id', '<div class="invalid-feedback">:message</div>') !!}
         </div>
         <div class="form-group">
+            {{ Form::label('cliente_id') }}
+            {{ Form::slect('cliente_id',$clientes, $cursoscap->cliente_id, ['class' => 'form-control' . ($errors->has('cliente_id') ? ' is-invalid' : ''), 'placeholder' => 'Cliente Id']) }}
+            {!! $errors->first('cliente_id', '<div class="invalid-feedback">:message</div>') !!}
+        </div>
+        <div class="form-group">
             {{ Form::label('nombre_cursoscaps') }}
             {{ Form::text('nombre_cursoscaps', $cursoscap->nombre_cursoscaps, ['class' => 'form-control' . ($errors->has('nombre_cursoscaps') ? ' is-invalid' : ''), 'placeholder' => 'Nombre Cursoscaps']) }}
             {!! $errors->first('nombre_cursoscaps', '<div class="invalid-feedback">:message</div>') !!}
