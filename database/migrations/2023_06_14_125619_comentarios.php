@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class Generos extends Migration
+class Comentarios extends Migration
 {
     /**
      * Run the migrations.
@@ -14,10 +14,11 @@ class Generos extends Migration
     public function up()
     {
         //
-        Schema::create('generos', function (Blueprint $table) {
-            $table->engine="InnoDB";
+        Schema::create('comentarios', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('Nombre_gen');
+            $table->string('contenido_com');
+            $table->date('fechapub_com');
+            $table->string('revision_com');
             $table->timestamps();
         });
     }

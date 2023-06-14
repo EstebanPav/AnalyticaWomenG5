@@ -21,12 +21,8 @@
                     <div class="card-body">
                         
                         <div class="form-group">
-                            <strong>Id Gen:</strong>
-                            {{ $genero->id_gen }}
-                        </div>
-                        <div class="form-group">
                             <strong>Nombre Gen:</strong>
-                            {{ $genero->nombre_gen }}
+                            {{ $genero->Nombre_gen }}
                         </div>
 
                     </div>

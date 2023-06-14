@@ -2,14 +2,14 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Genero;
+use App\Models\Blog;
 use Illuminate\Http\Request;
 
 /**
- * Class GeneroController
+ * Class BlogController
  * @package App\Http\Controllers
  */
-class GeneroController extends Controller
+class BlogController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -18,10 +18,10 @@ class GeneroController extends Controller
      */
     public function index()
     {
-        $generos = Genero::paginate();
+        $blogs = Blog::paginate();
 
-        return view('genero.index', compact('generos'))
-            ->with('i', (request()->input('page', 1) - 1) * $generos->perPage());
+        return view('blog.index', compact('blogs'))
+            ->with('i', (request()->input('page', 1) - 1) * $blogs->perPage());
     }
 
     /**
@@ -31,8 +31,8 @@ class GeneroController extends Controller
      */
     public function create()
     {
-        $genero = new Genero();
-        return view('genero.create', compact('genero'));
+        $blog = new Blog();
+        return view('blog.create', compact('blog'));
     }
 
     /**
@@ -43,12 +43,12 @@ class GeneroController extends Controller
      */
     public function store(Request $request)
     {
-        request()->validate(Genero::$rules);
+        request()->validate(Blog::$rules);
 
-        $genero = Genero::create($request->all());
+        $blog = Blog::create($request->all());
 
-        return redirect()->route('generos.index')
-            ->with('success', 'Genero created successfully.');
+        return redirect()->route('blogs.index')
+            ->with('success', 'Blog created successfully.');
     }
 
     /**
@@ -59,9 +59,9 @@ class GeneroController extends Controller
      */
     public function show($id)
     {
-        $genero = Genero::find($id);
+        $blog = Blog::find($id);
 
-        return view('genero.show', compact('genero'));
+        return view('blog.show', compact('blog'));
     }
 
     /**
@@ -72,26 +72,26 @@ class GeneroController extends Controller
      */
     public function edit($id)
     {
-        $genero = Genero::find($id);
+        $blog = Blog::find($id);
 
-        return view('genero.edit', compact('genero'));
+        return view('blog.edit', compact('blog'));
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request $request
-     * @param  Genero $genero
+     * @param  Blog $blog
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Genero $genero)
+    public function update(Request $request, Blog $blog)
     {
-        request()->validate(Genero::$rules);
+        request()->validate(Blog::$rules);
 
-        $genero->update($request->all());
+        $blog->update($request->all());
 
-        return redirect()->route('generos.index')
-            ->with('success', 'Genero updated successfully');
+        return redirect()->route('blogs.index')
+            ->with('success', 'Blog updated successfully');
     }
 
     /**
@@ -101,9 +101,9 @@ class GeneroController extends Controller
      */
     public function destroy($id)
     {
-        $genero = Genero::find($id)->delete();
+        $blog = Blog::find($id)->delete();
 
-        return redirect()->route('generos.index')
-            ->with('success', 'Genero deleted successfully');
+        return redirect()->route('blogs.index')
+            ->with('success', 'Blog deleted successfully');
     }
 }

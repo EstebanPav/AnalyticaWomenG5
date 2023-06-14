@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('template_title')
-    Cliente
+    Comentario
 @endsection
 
 @section('content')
@@ -13,11 +13,11 @@
                         <div style="display: flex; justify-content: space-between; align-items: center;">
 
                             <span id="card_title">
-                                {{ __('Cliente') }}
+                                {{ __('Comentario') }}
                             </span>
 
                              <div class="float-right">
-                                <a href="{{ route('clientes.create') }}" class="btn btn-primary btn-sm float-right"  data-placement="left">
+                                <a href="{{ route('comentarios.create') }}" class="btn btn-primary btn-sm float-right"  data-placement="left">
                                   {{ __('Create New') }}
                                 </a>
                               </div>
@@ -36,38 +36,26 @@
                                     <tr>
                                         <th>No</th>
                                         
-										<th>Genero Id</th>
-										<th>Nombre Cli</th>
-										<th>Fecha Nac Cli</th>
-										<th>Telefono1 Cli</th>
-										<th>Telefono2 Cli</th>
-										<th>Email Cli</th>
-										<th>Titulo Cli</th>
-										<th>Rol Cli</th>
-										<th>Experiencia Cli</th>
+										<th>Contenido Com</th>
+										<th>Fechapub Com</th>
+										<th>Revision Com</th>
 
                                         <th></th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @foreach ($clientes as $cliente)
+                                    @foreach ($comentarios as $comentario)
                                         <tr>
                                             <td>{{ ++$i }}</td>
                                             
-											<td>{{ $cliente->genero_id }}</td>
-											<td>{{ $cliente->nombre_cli }}</td>
-											<td>{{ $cliente->fecha_nac_cli }}</td>
-											<td>{{ $cliente->telefono1_cli }}</td>
-											<td>{{ $cliente->telefono2_cli }}</td>
-											<td>{{ $cliente->email_cli }}</td>
-											<td>{{ $cliente->titulo_cli }}</td>
-											<td>{{ $cliente->rol_cli }}</td>
-											<td>{{ $cliente->experiencia_cli }}</td>
+											<td>{{ $comentario->contenido_com }}</td>
+											<td>{{ $comentario->fechapub_com }}</td>
+											<td>{{ $comentario->revision_com }}</td>
 
                                             <td>
-                                                <form action="{{ route('clientes.destroy',$cliente->id) }}" method="POST">
-                                                    <a class="btn btn-sm btn-primary " href="{{ route('clientes.show',$cliente->id) }}"><i class="fa fa-fw fa-eye"></i> {{ __('Show') }}</a>
-                                                    <a class="btn btn-sm btn-success" href="{{ route('clientes.edit',$cliente->id) }}"><i class="fa fa-fw fa-edit"></i> {{ __('Edit') }}</a>
+                                                <form action="{{ route('comentarios.destroy',$comentario->id) }}" method="POST">
+                                                    <a class="btn btn-sm btn-primary " href="{{ route('comentarios.show',$comentario->id) }}"><i class="fa fa-fw fa-eye"></i> {{ __('Show') }}</a>
+                                                    <a class="btn btn-sm btn-success" href="{{ route('comentarios.edit',$comentario->id) }}"><i class="fa fa-fw fa-edit"></i> {{ __('Edit') }}</a>
                                                     @csrf
                                                     @method('DELETE')
                                                     <button type="submit" class="btn btn-danger btn-sm"><i class="fa fa-fw fa-trash"></i> {{ __('Delete') }}</button>
@@ -80,7 +68,7 @@
                         </div>
                     </div>
                 </div>
-                {!! $clientes->links() !!}
+                {!! $comentarios->links() !!}
             </div>
         </div>
     </div>

@@ -21,7 +21,7 @@ class Servicios extends Migration
             $table->string('descripcion_serv');
             $table->double('precio_serv');
             $table->timestamps();
-            $table->foreign('cliente_id')->references('id_cli')->on('clientes')->onDelete("cascade");
+            $table->foreign('cliente_id')->references('id')->on('clientes')->onDelete("cascade");
         });
     }
 

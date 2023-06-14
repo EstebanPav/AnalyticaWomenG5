@@ -30,6 +30,9 @@ Route::resource('eventos',App\Http\Controllers\EventoController::class);
 Route::resource('redsocials',App\Http\Controllers\RedsocialController::class);
 Route::resource('contactos',App\Http\Controllers\ContactoController::class);
 Route::resource('informacions',App\Http\Controllers\InformacionController::class);
+Route::resource('comentarios',App\Http\Controllers\ComentarioController::class);
+Route::resource('blogs',App\Http\Controllers\BlogController::class);
+Route::resource('categorias',App\Http\Controllers\CategoriaController::class);
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 //Route Hooks - Do not delete//

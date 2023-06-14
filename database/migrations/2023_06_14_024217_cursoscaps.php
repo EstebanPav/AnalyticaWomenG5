@@ -26,7 +26,7 @@ class Cursoscaps extends Migration
             $table->integer('cupos_cursoscaps');
             $table->decimal('costo_cursoscaps');
             $table->timestamps();
-            $table->foreign('cliente_id')->references('id_cli')->on('clientes')->onDelete("cascade");
+            $table->foreign('cliente_id')->references('id')->on('clientes')->onDelete("cascade");
         });
     }
 

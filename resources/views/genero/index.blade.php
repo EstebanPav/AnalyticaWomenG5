@@ -36,7 +36,6 @@
                                     <tr>
                                         <th>No</th>
                                         
-										<th>Id Gen</th>
 										<th>Nombre Gen</th>
 
                                         <th></th>
@@ -47,13 +46,12 @@
                                         <tr>
                                             <td>{{ ++$i }}</td>
                                             
-											<td>{{ $genero->id_gen }}</td>
-											<td>{{ $genero->nombre_gen }}</td>
+											<td>{{ $genero->Nombre_gen }}</td>
 
                                             <td>
-                                                <form action="{{ route('generos.destroy',$genero->id_gen) }}" method="POST">
-                                                    <a class="btn btn-sm btn-primary " href="{{ route('generos.show',$genero->id_gen) }}"><i class="fa fa-fw fa-eye"></i> {{ __('Show') }}</a>
-                                                    <a class="btn btn-sm btn-success" href="{{ route('generos.edit',$genero->id_gen) }}"><i class="fa fa-fw fa-edit"></i> {{ __('Edit') }}</a>
+                                                <form action="{{ route('generos.destroy',$genero->id) }}" method="POST">
+                                                    <a class="btn btn-sm btn-primary " href="{{ route('generos.show',$genero->id) }}"><i class="fa fa-fw fa-eye"></i> {{ __('Show') }}</a>
+                                                    <a class="btn btn-sm btn-success" href="{{ route('generos.edit',$genero->id) }}"><i class="fa fa-fw fa-edit"></i> {{ __('Edit') }}</a>
                                                     @csrf
                                                     @method('DELETE')
                                                     <button type="submit" class="btn btn-danger btn-sm"><i class="fa fa-fw fa-trash"></i> {{ __('Delete') }}</button>

@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('template_title')
-    Cliente
+    Categoria
 @endsection
 
 @section('content')
@@ -13,11 +13,11 @@
                         <div style="display: flex; justify-content: space-between; align-items: center;">
 
                             <span id="card_title">
-                                {{ __('Cliente') }}
+                                {{ __('Categoria') }}
                             </span>
 
                              <div class="float-right">
-                                <a href="{{ route('clientes.create') }}" class="btn btn-primary btn-sm float-right"  data-placement="left">
+                                <a href="{{ route('categorias.create') }}" class="btn btn-primary btn-sm float-right"  data-placement="left">
                                   {{ __('Create New') }}
                                 </a>
                               </div>
@@ -36,38 +36,26 @@
                                     <tr>
                                         <th>No</th>
                                         
-										<th>Genero Id</th>
-										<th>Nombre Cli</th>
-										<th>Fecha Nac Cli</th>
-										<th>Telefono1 Cli</th>
-										<th>Telefono2 Cli</th>
-										<th>Email Cli</th>
-										<th>Titulo Cli</th>
-										<th>Rol Cli</th>
-										<th>Experiencia Cli</th>
+										<th>Comentario Id</th>
+										<th>Blog Id</th>
+										<th>Nombre Cat</th>
 
                                         <th></th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @foreach ($clientes as $cliente)
+                                    @foreach ($categorias as $categoria)
                                         <tr>
                                             <td>{{ ++$i }}</td>
                                             
-											<td>{{ $cliente->genero_id }}</td>
-											<td>{{ $cliente->nombre_cli }}</td>
-											<td>{{ $cliente->fecha_nac_cli }}</td>
-											<td>{{ $cliente->telefono1_cli }}</td>
-											<td>{{ $cliente->telefono2_cli }}</td>
-											<td>{{ $cliente->email_cli }}</td>
-											<td>{{ $cliente->titulo_cli }}</td>
-											<td>{{ $cliente->rol_cli }}</td>
-											<td>{{ $cliente->experiencia_cli }}</td>
+											<td>{{ $categoria->comentario_id }}</td>
+											<td>{{ $categoria->blog_id }}</td>
+											<td>{{ $categoria->nombre_cat }}</td>
 
                                             <td>
-                                                <form action="{{ route('clientes.destroy',$cliente->id) }}" method="POST">
-                                                    <a class="btn btn-sm btn-primary " href="{{ route('clientes.show',$cliente->id) }}"><i class="fa fa-fw fa-eye"></i> {{ __('Show') }}</a>
-                                                    <a class="btn btn-sm btn-success" href="{{ route('clientes.edit',$cliente->id) }}"><i class="fa fa-fw fa-edit"></i> {{ __('Edit') }}</a>
+                                                <form action="{{ route('categorias.destroy',$categoria->id) }}" method="POST">
+                                                    <a class="btn btn-sm btn-primary " href="{{ route('categorias.show',$categoria->id) }}"><i class="fa fa-fw fa-eye"></i> {{ __('Show') }}</a>
+                                                    <a class="btn btn-sm btn-success" href="{{ route('categorias.edit',$categoria->id) }}"><i class="fa fa-fw fa-edit"></i> {{ __('Edit') }}</a>
                                                     @csrf
                                                     @method('DELETE')
                                                     <button type="submit" class="btn btn-danger btn-sm"><i class="fa fa-fw fa-trash"></i> {{ __('Delete') }}</button>
@@ -80,7 +68,7 @@
                         </div>
                     </div>
                 </div>
-                {!! $clientes->links() !!}
+                {!! $categorias->links() !!}
             </div>
         </div>
     </div>

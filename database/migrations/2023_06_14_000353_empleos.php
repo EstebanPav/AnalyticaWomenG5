@@ -25,7 +25,7 @@ class Empleos extends Migration
             $table->date('fechapub_emp');
             $table->string('experiencia_emp');
             $table->timestamps();
-            $table->foreign('cliente_id')->references('id_cli')->on('clientes')->onDelete("cascade");
+            $table->foreign('cliente_id')->references('id')->on('clientes')->onDelete("cascade");
         });
     }
 

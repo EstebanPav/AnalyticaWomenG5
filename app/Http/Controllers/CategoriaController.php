@@ -2,14 +2,14 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Genero;
+use App\Models\Categoria;
 use Illuminate\Http\Request;
 
 /**
- * Class GeneroController
+ * Class CategoriaController
  * @package App\Http\Controllers
  */
-class GeneroController extends Controller
+class CategoriaController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -18,10 +18,10 @@ class GeneroController extends Controller
      */
     public function index()
     {
-        $generos = Genero::paginate();
+        $categorias = Categoria::paginate();
 
-        return view('genero.index', compact('generos'))
-            ->with('i', (request()->input('page', 1) - 1) * $generos->perPage());
+        return view('categoria.index', compact('categorias'))
+            ->with('i', (request()->input('page', 1) - 1) * $categorias->perPage());
     }
 
     /**
@@ -31,8 +31,8 @@ class GeneroController extends Controller
      */
     public function create()
     {
-        $genero = new Genero();
-        return view('genero.create', compact('genero'));
+        $categoria = new Categoria();
+        return view('categoria.create', compact('categoria'));
     }
 
     /**
@@ -43,12 +43,12 @@ class GeneroController extends Controller
      */
     public function store(Request $request)
     {
-        request()->validate(Genero::$rules);
+        request()->validate(Categoria::$rules);
 
-        $genero = Genero::create($request->all());
+        $categoria = Categoria::create($request->all());
 
-        return redirect()->route('generos.index')
-            ->with('success', 'Genero created successfully.');
+        return redirect()->route('categorias.index')
+            ->with('success', 'Categoria created successfully.');
     }
 
     /**
@@ -59,9 +59,9 @@ class GeneroController extends Controller
      */
     public function show($id)
     {
-        $genero = Genero::find($id);
+        $categoria = Categoria::find($id);
 
-        return view('genero.show', compact('genero'));
+        return view('categoria.show', compact('categoria'));
     }
 
     /**
@@ -72,26 +72,26 @@ class GeneroController extends Controller
      */
     public function edit($id)
     {
-        $genero = Genero::find($id);
+        $categoria = Categoria::find($id);
 
-        return view('genero.edit', compact('genero'));
+        return view('categoria.edit', compact('categoria'));
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request $request
-     * @param  Genero $genero
+     * @param  Categoria $categoria
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Genero $genero)
+    public function update(Request $request, Categoria $categoria)
     {
-        request()->validate(Genero::$rules);
+        request()->validate(Categoria::$rules);
 
-        $genero->update($request->all());
+        $categoria->update($request->all());
 
-        return redirect()->route('generos.index')
-            ->with('success', 'Genero updated successfully');
+        return redirect()->route('categorias.index')
+            ->with('success', 'Categoria updated successfully');
     }
 
     /**
@@ -101,9 +101,9 @@ class GeneroController extends Controller
      */
     public function destroy($id)
     {
-        $genero = Genero::find($id)->delete();
+        $categoria = Categoria::find($id)->delete();
 
-        return redirect()->route('generos.index')
-            ->with('success', 'Genero deleted successfully');
+        return redirect()->route('categorias.index')
+            ->with('success', 'Categoria deleted successfully');
     }
 }

@@ -21,10 +21,6 @@
                     <div class="card-body">
                         
                         <div class="form-group">
-                            <strong>Id Cli:</strong>
-                            {{ $cliente->id_cli }}
-                        </div>
-                        <div class="form-group">
                             <strong>Genero Id:</strong>
                             {{ $cliente->genero_id }}
                         </div>

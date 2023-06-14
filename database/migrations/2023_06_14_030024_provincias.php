@@ -19,7 +19,7 @@ class Provincias extends Migration
             $table->bigInteger('cliente_id')->unsigned();
             $table->string('nombre_prov');
             $table->timestamps();
-            $table->foreign('cliente_id')->references('id_cli')->on('clientes')->onDelete("cascade");
+            $table->foreign('cliente_id')->references('id')->on('clientes')->onDelete("cascade");
         });
     }
 

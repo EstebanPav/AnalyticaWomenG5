@@ -16,7 +16,7 @@ class Clientes extends Migration
         //
         Schema::create('clientes', function (Blueprint $table) {
             $table->engine="InnoDB";
-            $table->bsigIncrement('id_cli');
+            $table->bigIncrements('id');
             $table->bigInteger('genero_id')->unsigned();
             $table->string('nombre_cli');
             $table->date('fecha_nac_cli');
@@ -27,7 +27,7 @@ class Clientes extends Migration
             $table->string('rol_cli');
             $table->string('experiencia_cli');
             $table->timestamps();
-            $table->foreign('genero_id')->references('id_gen')->on('generos')->onDelete("cascade");
+            $table->foreign('genero_id')->references('id')->on('generos')->onDelete("cascade");
         });
     }
 

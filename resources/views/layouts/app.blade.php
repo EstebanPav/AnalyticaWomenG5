@@ -72,6 +72,15 @@
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('informacions.index') }}">{{ __('informacions') }}</a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('comentarios.index') }}">{{ __('comentarios') }}</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('blogs.index') }}">{{ __('blogs') }}</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('categorias.index') }}">{{ __('categorias') }}</a>
+                        </li>
                     </ul>
 					@endauth()
 					

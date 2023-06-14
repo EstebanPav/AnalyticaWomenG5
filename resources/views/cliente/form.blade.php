@@ -2,11 +2,6 @@
     <div class="box-body">
         
         <div class="form-group">
-            {{ Form::label('id_cli') }}
-            {{ Form::text('id_cli', $cliente->id_cli, ['class' => 'form-control' . ($errors->has('id_cli') ? ' is-invalid' : ''), 'placeholder' => 'Id Cli']) }}
-            {!! $errors->first('id_cli', '<div class="invalid-feedback">:message</div>') !!}
-        </div>
-        <div class="form-group">
             {{ Form::label('genero_id') }}
             {{ Form::text('genero_id', $cliente->genero_id, ['class' => 'form-control' . ($errors->has('genero_id') ? ' is-invalid' : ''), 'placeholder' => 'Genero Id']) }}
             {!! $errors->first('genero_id', '<div class="invalid-feedback">:message</div>') !!}
