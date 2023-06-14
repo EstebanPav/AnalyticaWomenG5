@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Informacion;
+use App\Models\Redsocial;
+use App\Models\Contacto;
 use Illuminate\Http\Request;
 
 /**
@@ -32,7 +34,9 @@ class InformacionController extends Controller
     public function create()
     {
         $informacion = new Informacion();
-        return view('informacion.create', compact('informacion'));
+        $redsocials= Redsocial::pluck('nombre_redsocials','id');
+        $contactos= Contacto::pluck('nombre_contc','id');
+        return view('informacion.create', compact('informacion','redsocials','contactos'));
     }
 
     /**
@@ -73,8 +77,9 @@ class InformacionController extends Controller
     public function edit($id)
     {
         $informacion = Informacion::find($id);
-
-        return view('informacion.edit', compact('informacion'));
+        $redsocials= Redsocial::pluck('nombre_redsocials','id');
+        $contactos= Contacto::pluck('nombre_contc','id');
+        return view('informacion.edit', compact('informacion','redsocials','contactos'));
     }
 
     /**

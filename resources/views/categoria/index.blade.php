@@ -48,8 +48,12 @@
                                         <tr>
                                             <td>{{ ++$i }}</td>
                                             
-											<td>{{ $categoria->comentario_id }}</td>
-											<td>{{ $categoria->blog_id }}</td>
+											<td>
+                                                {{ $categoria->comentario->contenido_com}}
+                                            </td>
+											<td>
+                                                {{ $categoria->blog->titulo_blog}}
+                                            </td>
 											<td>{{ $categoria->nombre_cat }}</td>
 
                                             <td>

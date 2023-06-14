@@ -2,16 +2,15 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Categoria;
-use App\Models\Comentario;
 use App\Models\Blog;
+use App\Models\Comentario;
 use Illuminate\Http\Request;
 
 /**
- * Class CategoriaController
+ * Class BlogController
  * @package App\Http\Controllers
  */
-class CategoriaController extends Controller
+class BlogController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -20,10 +19,10 @@ class CategoriaController extends Controller
      */
     public function index()
     {
-        $categorias = Categoria::paginate();
+        $blogs = Blog::paginate();
 
-        return view('categoria.index', compact('categorias'))
-            ->with('i', (request()->input('page', 1) - 1) * $categorias->perPage());
+        return view('blog.index', compact('blogs'))
+            ->with('i', (request()->input('page', 1) - 1) * $blogs->perPage());
     }
 
     /**
@@ -33,10 +32,9 @@ class CategoriaController extends Controller
      */
     public function create()
     {
-        $categoria = new Categoria();
+        $blog = new Blog();
         $comentarios= Comentario::pluck('contenido_com','id');
-        $blogs= Blog::pluck('titulo_blog','id');
-        return view('categoria.create', compact('categoria','comentarios','blogs'));
+        return view('blog.create', compact('blog','comentarios'));
     }
 
     /**
@@ -47,12 +45,12 @@ class CategoriaController extends Controller
      */
     public function store(Request $request)
     {
-        request()->validate(Categoria::$rules);
+        request()->validate(Blog::$rules);
 
-        $categoria = Categoria::create($request->all());
+        $blog = Blog::create($request->all());
 
-        return redirect()->route('categorias.index')
-            ->with('success', 'Categoria created successfully.');
+        return redirect()->route('blogs.index')
+            ->with('success', 'Blog created successfully.');
     }
 
     /**
@@ -63,9 +61,9 @@ class CategoriaController extends Controller
      */
     public function show($id)
     {
-        $categoria = Categoria::find($id);
+        $blog = Blog::find($id);
 
-        return view('categoria.show', compact('categoria'));
+        return view('blog.show', compact('blog'));
     }
 
     /**
@@ -76,27 +74,26 @@ class CategoriaController extends Controller
      */
     public function edit($id)
     {
-        $categoria = Categoria::find($id);
+        $blog = Blog::find($id);
         $comentarios= Comentario::pluck('contenido_com','id');
-        $blogs= Blog::pluck('titulo_blog','id');
-        return view('categoria.edit', compact('categoria','comentarios','blogs'));
+        return view('blog.edit', compact('blog','comentarios'));
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request $request
-     * @param  Categoria $categoria
+     * @param  Blog $blog
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Categoria $categoria)
+    public function update(Request $request, Blog $blog)
     {
-        request()->validate(Categoria::$rules);
+        request()->validate(Blog::$rules);
 
-        $categoria->update($request->all());
+        $blog->update($request->all());
 
-        return redirect()->route('categorias.index')
-            ->with('success', 'Categoria updated successfully');
+        return redirect()->route('blogs.index')
+            ->with('success', 'Blog updated successfully');
     }
 
     /**
@@ -106,9 +103,9 @@ class CategoriaController extends Controller
      */
     public function destroy($id)
     {
-        $categoria = Categoria::find($id)->delete();
+        $blog = Blog::find($id)->delete();
 
-        return redirect()->route('categorias.index')
-            ->with('success', 'Categoria deleted successfully');
+        return redirect()->route('blogs.index')
+            ->with('success', 'Blog deleted successfully');
     }
 }

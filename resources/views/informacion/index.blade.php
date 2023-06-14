@@ -50,8 +50,12 @@
                                         <tr>
                                             <td>{{ ++$i }}</td>
                                             
-											<td>{{ $informacion->red_id }}</td>
-											<td>{{ $informacion->cont_id }}</td>
+											<td>
+                                                {{ $informacion->redsocial->nombre_redsocials}}
+                                            </td>
+											<td>
+                                                {{ $informacion->contacto->nombre_contc}}
+                                            </td>
 											<td>{{ $informacion->mision_inf }}</td>
 											<td>{{ $informacion->vision_inf }}</td>
 											<td>{{ $informacion->cultural_inf }}</td>
