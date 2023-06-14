@@ -16,9 +16,8 @@ class Clientes extends Migration
         //
         Schema::create('clientes', function (Blueprint $table) {
             $table->engine="InnoDB";
-            $table->bigIncrements('id_cli');
+            $table->bsigIncrement('id_cli');
             $table->bigInteger('genero_id')->unsigned();
-
             $table->string('nombre_cli');
             $table->date('fecha_nac_cli');
             $table->string('telefono1_cli');

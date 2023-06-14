@@ -2,14 +2,14 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Cliente;
+use App\Models\Empleo;
 use Illuminate\Http\Request;
 
 /**
- * Class ClienteController
+ * Class EmpleoController
  * @package App\Http\Controllers
  */
-class ClienteController extends Controller
+class EmpleoController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -18,10 +18,10 @@ class ClienteController extends Controller
      */
     public function index()
     {
-        $clientes = Cliente::paginate();
+        $empleos = Empleo::paginate();
 
-        return view('cliente.index', compact('clientes'))
-            ->with('i', (request()->input('page', 1) - 1) * $clientes->perPage());
+        return view('empleo.index', compact('empleos'))
+            ->with('i', (request()->input('page', 1) - 1) * $empleos->perPage());
     }
 
     /**
@@ -31,8 +31,8 @@ class ClienteController extends Controller
      */
     public function create()
     {
-        $cliente = new Cliente();
-        return view('cliente.create', compact('cliente'));
+        $empleo = new Empleo();
+        return view('empleo.create', compact('empleo'));
     }
 
     /**
@@ -43,12 +43,12 @@ class ClienteController extends Controller
      */
     public function store(Request $request)
     {
-        request()->validate(Cliente::$rules);
+        request()->validate(Empleo::$rules);
 
-        $cliente = Cliente::create($request->all());
+        $empleo = Empleo::create($request->all());
 
-        return redirect()->route('clientes.index')
-            ->with('success', 'Cliente created successfully.');
+        return redirect()->route('empleos.index')
+            ->with('success', 'Empleo created successfully.');
     }
 
     /**
@@ -59,9 +59,9 @@ class ClienteController extends Controller
      */
     public function show($id)
     {
-        $cliente = Cliente::find($id);
+        $empleo = Empleo::find($id);
 
-        return view('cliente.show', compact('cliente'));
+        return view('empleo.show', compact('empleo'));
     }
 
     /**
@@ -72,26 +72,26 @@ class ClienteController extends Controller
      */
     public function edit($id)
     {
-        $cliente = Cliente::find($id);
+        $empleo = Empleo::find($id);
 
-        return view('cliente.edit', compact('cliente'));
+        return view('empleo.edit', compact('empleo'));
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request $request
-     * @param  Cliente $cliente
+     * @param  Empleo $empleo
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Cliente $cliente)
+    public function update(Request $request, Empleo $empleo)
     {
-        request()->validate(Cliente::$rules);
+        request()->validate(Empleo::$rules);
 
-        $cliente->update($request->all());
+        $empleo->update($request->all());
 
-        return redirect()->route('clientes.index')
-            ->with('success', 'Cliente updated successfully');
+        return redirect()->route('empleos.index')
+            ->with('success', 'Empleo updated successfully');
     }
 
     /**
@@ -101,9 +101,9 @@ class ClienteController extends Controller
      */
     public function destroy($id)
     {
-        $cliente = Cliente::find($id)->delete();
+        $empleo = Empleo::find($id)->delete();
 
-        return redirect()->route('clientes.index')
-            ->with('success', 'Cliente deleted successfully');
+        return redirect()->route('empleos.index')
+            ->with('success', 'Empleo deleted successfully');
     }
 }

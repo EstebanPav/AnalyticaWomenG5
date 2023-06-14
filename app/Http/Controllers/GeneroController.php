@@ -54,12 +54,12 @@ class GeneroController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int $id
+     * @param  int $id_gen
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($id_gen)
     {
-        $genero = Genero::find($id);
+        $genero = Genero::find($id_gen);
 
         return view('genero.show', compact('genero'));
     }
@@ -67,12 +67,12 @@ class GeneroController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int $id
+     * @param  int $id_gen
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit($id_gen)
     {
-        $genero = Genero::find($id);
+        $genero = Genero::find($id_gen);
 
         return view('genero.edit', compact('genero'));
     }
@@ -95,13 +95,13 @@ class GeneroController extends Controller
     }
 
     /**
-     * @param int $id
+     * @param int $id_gen
      * @return \Illuminate\Http\RedirectResponse
      * @throws \Exception
      */
-    public function destroy($id)
+    public function destroy($id_gen)
     {
-        $genero = Genero::find($id)->delete();
+        $genero = Genero::find($id_gen)->delete();
 
         return redirect()->route('generos.index')
             ->with('success', 'Genero deleted successfully');
