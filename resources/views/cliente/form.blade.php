@@ -7,6 +7,13 @@
             {!! $errors->first('genero_id', '<div class="invalid-feedback">:message</div>') !!}
         </div>
         <div class="form-group">
+            {{ Form::label('genero_id') }}
+            {{ Form::select('genero_id',$generos, $cliente->genero_id, ['class' => 'form-control' . ($errors->has('genero_id') ? ' is-invalid' : ''), 'placeholder' => 'Genero Id']) }}
+            {!! $errors->first('genero_id', '<div class="invalid-feedback">:message</div>') !!}
+        </div>
+
+
+        <div class="form-group">
             {{ Form::label('nombre_cli') }}
             {{ Form::text('nombre_cli', $cliente->nombre_cli, ['class' => 'form-control' . ($errors->has('nombre_cli') ? ' is-invalid' : ''), 'placeholder' => 'Nombre Cli']) }}
             {!! $errors->first('nombre_cli', '<div class="invalid-feedback">:message</div>') !!}

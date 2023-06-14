@@ -53,8 +53,11 @@
                                     @foreach ($clientes as $cliente)
                                         <tr>
                                             <td>{{ ++$i }}</td>
-                                            
-											<td>{{ $cliente->genero_id }}</td>
+
+											<td>
+
+                                                {{ $cliente->genero->Nombre_gen}}
+                                            </td>
 											<td>{{ $cliente->nombre_cli }}</td>
 											<td>{{ $cliente->fecha_nac_cli }}</td>
 											<td>{{ $cliente->telefono1_cli }}</td>

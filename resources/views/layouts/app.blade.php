@@ -36,6 +36,7 @@
 					@auth()
                     <ul class="navbar-nav mr-auto">
 						<!--Nav Bar Hooks - Do not delete!!-->
+                        @if (Auth::check())
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('clientes.index') }}">{{ __('clientes') }}</a>
                         </li>
@@ -82,6 +83,7 @@
                             <a class="nav-link" href="{{ route('categorias.index') }}">{{ __('categorias') }}</a>
                         </li>
                     </ul>
+                    @endif
 					@endauth()
 					
                     <!-- Right Side Of Navbar -->
