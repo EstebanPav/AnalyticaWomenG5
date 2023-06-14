@@ -45,6 +45,33 @@
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('empleos.index') }}">{{ __('empleos') }}</a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('servicios.index') }}">{{ __('servicios') }}</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('cursoscaps.index') }}">{{ __('cursoscaps') }}</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('pagos.index') }}">{{ __('pagos') }}</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('provincias.index') }}">{{ __('provincias') }}</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('ciudades.index') }}">{{ __('ciudades') }}</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('eventos.index') }}">{{ __('eventos') }}</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('redsocials.index') }}">{{ __('redsocials') }}</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('contactos.index') }}">{{ __('contactos') }}</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('informacions.index') }}">{{ __('informacions') }}</a>
+                        </li>
                     </ul>
 					@endauth()
 					
